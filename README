@@ -9,9 +9,10 @@ This is  an attempt  at getting  chrome to behave  a little  more like
 emacs by adding emacs-like shortcut keys to the browser.
 
 Bindings that are currently implemented:
-   Key   Description             
-   C-v   Page down               
-   M-v   Page up                 
-   M-<   Jump to top of page     
-   M->   Jump to bottom of page  
-   C-x k Close tab
+   Key        Description             
+   C-v        Page down               
+   M-v        Page up                 
+   M-<        Jump to top of page     
+   M->        Jump to bottom of page  
+   C-x k      Close tab
+   C-x C-g    Cancel

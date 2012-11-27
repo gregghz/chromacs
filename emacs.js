@@ -1,6 +1,6 @@
 (function () {
 
-	var kbEvents = new Keyboard({
+	var main_keyboard = new Keyboard({
 		events: {
 			'ctrl+v': function () {
 				window.scrollBy(0, window.innerHeight-20);
@@ -8,12 +8,12 @@
 			'alt+v': function () {
 				window.scrollBy(0, -(window.innerHeight-20));
 			},
-			'ctrl+shift+.': function () {
+			'alt+shift+.': function () {
 				window.scrollBy(0, document.body.scrollHeight);
 			},
-			'ctrl+shift+,': function () {
+			'alt+shift+,': function () {
 				window.scrollBy(0, -(document.body.scrollHeight));
-			}
+			},
 		}
 	}).activate();
 

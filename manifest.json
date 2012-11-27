@@ -9,5 +9,9 @@
 			"matches": ["*://*/*"],
 			"js": ["moo.js", "more.js", "emacs.js"]
 		}
-	]
+	],
+	"permissions": ["tabs"],
+	"background": {
+		"scripts": ["eventPage.js"]
+	}
 }

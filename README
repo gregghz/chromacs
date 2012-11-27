@@ -14,4 +14,4 @@ Bindings that are currently implemented:
    M-v   Page up                 
    M-<   Jump to top of page     
    M->   Jump to bottom of page  
-
+   C-x k Close tab

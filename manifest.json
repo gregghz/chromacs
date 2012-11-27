@@ -3,13 +3,11 @@
 	"version": "12.3",
 	"manifest_version": 2,
 	"description": "use emacs bindings to do things in Chrom(e|ium).",
-	"web_accessible_resources": [
-		"emacs.js"
-	],
+	"web_accessible_resources": ["moo.js", "more.js", "emacs.js"],
 	"content_scripts": [
 		{
 			"matches": ["*://*/*"],
-			"js": ["emacs.js"]
+			"js": ["moo.js", "more.js", "emacs.js"]
 		}
 	]
 }

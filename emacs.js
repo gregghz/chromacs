@@ -1,17 +1,20 @@
 (function () {
 
-	document.addEventListener('keyup', function (e) {
-		console.log(e.keyCode, e);
-		
-		if (e.keyCode === 86 && e.ctrlKey) { // C-v
-			window.scrollBy(0, window.innerHeight-20);
-		} else if (e.keyCode === 86 && e.altKey) { // M-v
-			window.scrollBy(0, -(window.innerHeight-20));
-		} else if (e.keyCode === 190 && e.ctrlKey) {
-			window.scrollBy(0, document.body.scrollHeight);
-		} else if (e.keyCode == 188 && e.ctrlKey) {
-			window.scrollBy(0, -(document.body.scrollHeight));
+	var kbEvents = new Keyboard({
+		events: {
+			'ctrl+v': function () {
+				window.scrollBy(0, window.innerHeight-20);
+			},
+			'alt+v': function () {
+				window.scrollBy(0, -(window.innerHeight-20));
+			},
+			'ctrl+shift+.': function () {
+				window.scrollBy(0, document.body.scrollHeight);
+			},
+			'ctrl+shift+,': function () {
+				window.scrollBy(0, -(document.body.scrollHeight));
+			}
 		}
-	});
+	}).activate();
 
 })();

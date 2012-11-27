@@ -1,10 +1,6 @@
                                chromacs
                                ========
 
-Author: Anthony "Ishpeck" Tedjamulia
-Date: 2012-11-26 23:08:19 MST
-
-
 This is  an attempt  at getting  chrome to behave  a little  more like
 emacs by adding emacs-like shortcut keys to the browser.
 

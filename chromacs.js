@@ -9,13 +9,16 @@ var chromacs = (function () {
 		return proc;
 	};
 
-	var buildCallback = function (callback) {
+	var buildCallback = function (callback, check, append) {
 		return function (e) {
-			if (state != null)
-				return;
-			
-			e.stop();
-			callback();
+			if ((!check && state == null) || (check && check(state))) {
+				e.stop();
+				callback();
+			}
+
+			if (append) {
+				append(e);
+			}
 		}
 	};
 
@@ -30,15 +33,17 @@ var chromacs = (function () {
 				raw_events[key] = value;
 				events[shortcut] = buildCallback(callbacks[value]);
 			} else {
-				events[split[0]] = function (e) {
+				events[split[0]] = buildCallback(function () {
 					state = split[0];
+					console.log(state);
+				});
+
+				var cont = function (state) {
+					console.log(state, split[0]);
+					return state === split[0];
 				};
-				events[split[1]] = function (e) {
-					if (state === split[0]) {
-						e.stop();
-						callbacks[value](e);
-					}
-				};
+
+				events[split[1]] = buildCallback(callbacks[value], cont, events[split[1]]);
 			}
 		});
 

@@ -16,7 +16,5 @@
 				$tbody.grab($tr);
 			}
 		});
-
-		//chromacs.add_binding('C-e', 'test-thing');
 	});
 })();

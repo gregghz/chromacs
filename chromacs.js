@@ -35,7 +35,6 @@ var chromacs = (function () {
 			} else {
 				events[split[0]] = buildCallback(function () {
 					state = split[0];
-					console.log(state);
 				});
 
 				var cont = function (state) {

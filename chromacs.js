@@ -66,6 +66,11 @@ var chromacs = (function () {
 				chrome.storage.local.set({'bindings': raw_events});
 			});
 		},
+		update_events: function (events) {
+			chrome.storage.local.set({'bindings': events}, function () {
+				load_events(events);
+			});
+		}
 	};
 
 	var callbacks = {

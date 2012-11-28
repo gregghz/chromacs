@@ -46,6 +46,7 @@ var chromacs = (function () {
 			}
 		});
 
+		keyboard.removeEvents(events);
 		keyboard.addEvents(events);
 	}
 

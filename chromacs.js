@@ -87,9 +87,6 @@ var chromacs = (function () {
 		'keyboard-quit': function () {
 			console.log('quit');
 		},
-		'test-thing': function () {
-			console.log('test-thing');
-		}
 	}
 
 	return chromacs;

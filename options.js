@@ -17,6 +17,6 @@
 			}
 		});
 
-		chromacs.add_binding('C-e', 'test-thing');
+		//chromacs.add_binding('C-e', 'test-thing');
 	});
 })();

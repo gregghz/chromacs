@@ -1,33 +1,45 @@
 var chromacs = (function () {
 	var keyboard = new Keyboard();
 	var preproc_binding = function (raw) {
-		return raw.replace('C', 'ctrl').
+		var proc = raw.replace('C', 'ctrl').
 			replace('M', 'alt').
 			replace(/-/g, '+').
 			replace('>', 'shift+.').
 			replace('<', 'shift+,');
-	};
-	var postproc_binding = function (processed) {
-		return processed.replace('shift+,', '<').
-			replace('shitf+.', '>').
-			replace(/+/g, '-').
-			replace('alt', 'M').
-			replace('ctrl', 'C');
+		return proc;
 	};
 
 	var buildCallback = function (callback) {
 		return function (e) {
+			if (state != null)
+				return;
+			
 			e.stop();
 			callback();
 		}
 	};
 
+	var state = null;
 	var load_events = function (bindings) {
 		var events = {};
 		Object.each(bindings, function (value, key) {
 			var shortcut = preproc_binding(key);
-			raw_events[key] = value;
-			events[shortcut] = buildCallback(callbacks[value]);
+			var split = shortcut.split(' ');
+
+			if (split.length < 2) {
+				raw_events[key] = value;
+				events[shortcut] = buildCallback(callbacks[value]);
+			} else {
+				events[split[0]] = function (e) {
+					state = split[0];
+				};
+				events[split[1]] = function (e) {
+					if (state === split[0]) {
+						e.stop();
+						callbacks[value](e);
+					}
+				};
+			}
 		});
 
 		keyboard.addEvents(events);

@@ -82,9 +82,7 @@ var chromacs = (function () {
 			window.scrollBy(0, document.body.scrollHeight);
 		},
 		'kill-buffer': function () {
-			chrome.extension.sendMessage({action: 'close-tab'}, function (r) {
-
-			});
+			chrome.extension.sendMessage({action: 'close-tab'}, function (r) {});
 		},
 		'keyboard-quit': function () {
 			console.log('quit');

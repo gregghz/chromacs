@@ -7,12 +7,8 @@
 				sendResponse({message: 'success'});
 			});
 			break;
-		case 'get-bindings':
-			localStorage['bindings'] = sender.bindings;
-			break;
-		case 'set-bindings':
-			sendResponse({bindings: localStorage['bindings']});
-			break;
+		case 'activate':
+			chromacs.activate();
 		}
 	});
 
@@ -24,6 +20,8 @@
 			'M-<': 'beginning-of-buffer',
 			'M->': 'end-of-buffer',
 			'C-x k': 'kill-buffer',
+			'M-w': 'kill-ring-save',
+			'C-y': 'yank',
 		}});
 	});
 })();

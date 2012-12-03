@@ -51,7 +51,7 @@ var chromacs = (function () {
 	}
 
 	var raw_events = {};
-	
+
 	var chromacs = {
 		activate: function () {
 			chrome.storage.local.get('bindings', function (obj) {
@@ -93,6 +93,22 @@ var chromacs = (function () {
 		'keyboard-quit': function () {
 			console.log('quit');
 		},
+		'kill-region': function () {
+
+		},
+		'kill-ring-save': function () {
+			console.log('copy');
+			var selection = window.getSelection();
+			var temp = new Element('input').set('value', selection.toString());
+			$$('body').grab(temp);
+			temp.select();
+			document.execCommand('copy');
+			temp.dispose();
+		},
+		'yank': function () {
+			console.log('paste');
+			document.execCommand('paste');
+		}
 	}
 
 	return chromacs;

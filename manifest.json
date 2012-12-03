@@ -8,10 +8,10 @@
 	"content_scripts": [
 		{
 			"matches": ["*://*/*"],
-			"js": ["moo.js", "more.js", "chromacs.js", "emacs.js"]
+			"js": ["moo.js", "more.js", "emacs.js"]
 		}
 	],
-	"permissions": ["tabs", "storage"],
+	"permissions": ["tabs", "storage", "clipboardRead", "clipboardWrite"],
 	"background": {
 		"scripts": ["moo.js", "more.js", "chromacs.js", "eventPage.js"]
 	}

@@ -19,7 +19,7 @@ var chromacs = (function () {
 			if (append) {
 				append(e);
 			}
-		}
+		};
 	};
 
 	var state = null;
@@ -48,7 +48,7 @@ var chromacs = (function () {
 
 		keyboard.removeEvents(events);
 		keyboard.addEvents(events);
-	}
+	};
 
 	var raw_events = {};
 	
@@ -93,7 +93,7 @@ var chromacs = (function () {
 		'keyboard-quit': function () {
 			console.log('quit');
 		},
-	}
+	};
 
 	return chromacs;
 })();
